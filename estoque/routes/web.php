@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    	echo "I am developer..";
 });
+
+Route::get('/produtos', 'ProdutoController@lista');
+Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra');
+
