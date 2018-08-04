@@ -23,11 +23,28 @@ Class ProdutoController extends Controller{
 
 		public function mostra(){
 			// existe tambem o input('Dados do usuario'), route('Rotas')
-			$id = Request::route('id');
+			$id = Request::input('id', '0');
 
 			$produto = DB::select('SELECT * FROM produtos WHERE id = ?', [$id]);
 
+			if (empty($produto)){
+
+				return "Produto não existente !";
+
+			}
+
 			return view('detalhes')->with('p', $produto[0]);
+
+		}
+
+		public function inserir(){
+
+				$nome = Request::input('nomeProduto');
+
+
+			return view('inserir')->with('nome', $nome );
+
+
 
 		}
 

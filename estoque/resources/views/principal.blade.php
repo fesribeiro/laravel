@@ -7,16 +7,7 @@
 </head>
 <body>
 
-	<div class="container">
-		<h1>Detalhes do produto <?= $p->nome?></h1>	
+@yield('conteudo')
 
-		<ul>
-			<li>
-				Descrição: <?= $p->descricao?>
-			</li>
-		</ul>
-		
-
-	</div>
 </body>
 </html>
