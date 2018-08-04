@@ -1,10 +1,22 @@
-@extends('principal')
+@extends('layout.principal')
 
 
 @section('conteudo')
+
+
 	<div class="container">
-		<h1>Listagem de produtos</h1>	
+
 		<table class="table table-striped table-bordered table-hover">
+
+
+			<tr>
+						<td>Nome</td>
+						<td>Valor</td>
+						<td>Descrição</td>
+						<td>Quantidade</td>
+						<td>Vizualização</td>
+		
+				</tr>
 
 		 @foreach ($produtos as $p)
 				<tr class="{{ $p->quantidade <= 1 ? 'danger' : '' }}">
@@ -20,8 +32,12 @@
 		@endforeach
 		</table>
 
-		<button type="button" class="btn btn-dark"><a href="/produtos/inserirProdutos">Inserir um produto</a></button>
+
+		<button type="button" class="btn btn-dark"><a href="/produtos/novo">Inserir um produto</a></button>
 		
 
 	</div>
+
+
+
 @stop

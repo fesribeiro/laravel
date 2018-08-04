@@ -17,7 +17,7 @@ Class ProdutoController extends Controller{
 
 		
 			//                       ou with->('produtos', $produtos);
-			return view('listagem')->with('produtos',$produtos);
+			return view('produto.listagem')->with('produtos',$produtos);
 
 		}
 
@@ -33,16 +33,34 @@ Class ProdutoController extends Controller{
 
 			}
 
-			return view('detalhes')->with('p', $produto[0]);
+			return view('produto.detalhes')->with('p', $produto[0]);
 
 		}
 
-		public function inserir(){
-
-				$nome = Request::input('nomeProduto');
+		public function novo(){
 
 
-			return view('inserir')->with('nome', $nome );
+			return view('produto.formulario');
+
+
+
+		}
+
+		public function adiciona(){
+
+			// pegar do formulario
+			// cravar no banco
+
+			$nome = Request::input('nome');
+			$valor = Request::input('valor');
+			$descricao = Request::input('descricao');
+			$quantidade = Request::input('quantidade');
+
+			DB::insert('INSERT INTO produtos (nome, quantidade, valor, descricao) VALUES (?,?,?,?)', array($nome, $quantidade, $valor, $descricao));
+
+
+
+			return view('produto.adiciona')->with('nome', $nome);
 
 
 

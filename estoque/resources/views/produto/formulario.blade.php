@@ -1,9 +1,11 @@
-@extends('principal')
+@extends('layout.principal')
 
 
 @section('conteudo')
 
-		<form method="POST">		
+		<form method="POST" action="/produtos/adiciona">		
+
+			<input type="hidden" value="{{csrf_token()}}" name="_token" />
 
 			<div class="container">
 
@@ -12,34 +14,34 @@
 				<div class="form-group row">
 					 <label class="col-2 col-form-label">Nome do produto:</label>
 					 <div class="col-3">
-					    <input class="form-control" type="text" placeholder="Nome do produto..." name="nomeProduto">
+					    <input class="form-control" type="text"  name="nome" placeholder="Nome do produto...">
 					 </div>
 				</div>
 				
 				<div class="form-group row">
 				  <label class="col-2 col-form-label">Valor do produto:</label>
 				  <div class="col-3">
-				    <input class="form-control" type="number" placeholder="Valor do produto">
+				    <input class="form-control" type="number" name="valor" placeholder="Valor do produto">
 				  </div>
 				</div>
 
 				<div class="form-group">
     				<label>Descrição:</label>
     				<div class="col-5">
-    				<textarea class="form-control" rows="3"></textarea>
+    				<textarea class="form-control" name="descricao" rows="3"></textarea>
     				</div>
   				</div>
 
 				<div class="form-group row">
 				  <label class="col-2 col-form-label">quantidade:</label>
 				  <div class="col-3">
-				    <input class="form-control" type="number" placeholder="Quantidade...">
+				    <input class="form-control" type="number" name="quantidade" placeholder="Quantidade...">
 				  </div>
 				</div>
 
 		
 			
-				<button type="submit" class="btn btn-default">Submit</button>
+				<button type="submit" class="btn btn-primary">Adicionar</button>
 
 
 			
