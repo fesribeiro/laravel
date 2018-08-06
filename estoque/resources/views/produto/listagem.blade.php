@@ -25,8 +25,8 @@
 						<td>{{$p->descricao}} </td>
 						<td>{{$p->quantidade}} </td>
 						<td>
-							<a href="/produtos/mostra?id=<?=$p->id?>">Vizualizar</a>
-							<!--<a href="/produtos/deletar?id=<?=$p->id?>">Deletar</a>-->
+							<a href="/produtos/mostra/{{$p->id}}">Vizualizar</a>
+							<a href="/produtos/remove/{{$p->id}}">Deletar</a>
 						</td>
 
 				</tr>

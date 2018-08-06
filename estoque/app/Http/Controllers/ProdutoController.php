@@ -6,6 +6,7 @@ namespace estoque\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Request;
+use estoque\Produto;
 
 Class ProdutoController extends Controller{
 
@@ -13,19 +14,19 @@ Class ProdutoController extends Controller{
 
 		public function lista(){
 
-			$produtos = DB::select('SELECT * FROM produtos');
+			$produtos = Produto::all();
 
 		
 			//                       ou with->('produtos', $produtos);
 			return view('produto.listagem')->with('produtos',$produtos);
 
 		}
-
-		public function mostra(){
+						// recebe ID por URL
+		public function mostra($id){
 			// existe tambem o input('Dados do usuario'), route('Rotas')
-			$id = Request::input('id', '0');
+			//$id = Request::route('id');
 
-			$produto = DB::select('SELECT * FROM produtos WHERE id = ?', [$id]);
+			$produto = Produto::find($id);
 
 			if (empty($produto)){
 
@@ -33,7 +34,17 @@ Class ProdutoController extends Controller{
 
 			}
 
-			return view('produto.detalhes')->with('p', $produto[0]);
+			return view('produto.detalhes')->with('p', $produto);
+
+		}
+
+		public function remove(){
+			// existe tambem o input('Dados do usuario'), route('Rotas')
+			$id = Request::route('id');
+			$produto = Produto::find($id);
+			$produto->delete();
+			return redirect()->action('ProdutoController@lista');
+
 
 		}
 
@@ -48,17 +59,23 @@ Class ProdutoController extends Controller{
 
 		public function adiciona(){
 
-			// pegar do formulario
+			/*
+			// pegar dog formulario
+	
 			// cravar no banco
 
-			$nome = Request::input('nome');
-			$valor = Request::input('valor');
-			$descricao = Request::input('descricao');
-			$quantidade = Request::input('quantidade');
+			// Pegar todos os parametros enviados do formulario
+			$params = Request::all();
 
-			DB::insert('INSERT INTO produtos (nome, quantidade, valor, descricao) VALUES (?,?,?,?)', array($nome, $quantidade, $valor, $descricao));
+			// Colocar os parametros no construtor da variavel $produto
+			$produto = new Produto($params);
 
+			$produto->save();
+	
+			*/
 
+			// Criando um produto com todos os parametros da request
+			Produto::create(Request::all());
 			return redirect('/produtos')->withInput();
 
 
