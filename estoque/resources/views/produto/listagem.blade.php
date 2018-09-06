@@ -14,6 +14,7 @@
 						<td>Valor</td>
 						<td>Descrição</td>
 						<td>Quantidade</td>
+						<td>Tamanho</td>
 						<td>Ações</td>
 		
 				</tr>
@@ -22,8 +23,9 @@
 				<tr class="{{ $p->quantidade <= 1 ? 'alert-danger' : '' }}">
 						<td>{{$p->nome}}</td>
 						<td>{{$p->valor}}</td>
-						<td>{{$p->descricao}} </td>
-						<td>{{$p->quantidade}} </td>
+						<td>{{$p->descricao}}</td>
+						<td>{{$p->quantidade}}</td>
+						<td>{{$p->tamanho}}</td>
 						<td>
 							<a href="/produtos/mostra/{{$p->id}}">Vizualizar</a>
 							<a href="/produtos/remove/{{$p->id}}">Deletar</a>

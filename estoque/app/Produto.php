@@ -13,5 +13,5 @@ class Produto extends Model
 	public $timestamps = false;
 
     // Requests que podem vim em massa (all())
-    protected $fillable = array('nome', 'descricao', 'quantidade', 'valor');
+    protected $fillable = array('nome', 'descricao', 'quantidade', 'valor', 'tamanho');
 }

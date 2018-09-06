@@ -30,7 +30,14 @@
     				<div class="col-5">
     				<textarea class="form-control" name="descricao" rows="3"></textarea>
     				</div>
-  				</div>
+  			</div>
+
+				<div class="form-group row">
+				  <label class="col-2 col-form-label">Tamanho:</label>
+				  <div class="col-3">
+				    <input class="form-control" type="number" name="tamanho" placeholder="Tamanho...">
+				  </div>
+				</div>
 
 				<div class="form-group row">
 				  <label class="col-2 col-form-label">quantidade:</label>
