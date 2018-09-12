@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Request;
 use Validator;
 use estoque\Produto;
+use estoque\http\requests\ProdutoRequest;
 
 Class ProdutoController extends Controller{
 
@@ -55,7 +56,7 @@ Class ProdutoController extends Controller{
 
 		}
 
-		public function adiciona(){
+		public function adiciona(ProdutoRequest $request){
 
 			/*
 			// pegar dog formulario
@@ -72,17 +73,8 @@ Class ProdutoController extends Controller{
 	
 			*/
 
-			$validator = Validator::make(
-					['nome' => Request::input('nome')],
-					['nome' => 'required|min:3']
-			);
-
-			if ($validator->fails()){
-				return redirect('/produtos/novo');
-			}
-
 			// Criando um produto com todos os parametros da request
-			Produto::create(Request::all());
+			Produto::create($request->all());
 			return redirect('/produtos')->withInput();
 
 
