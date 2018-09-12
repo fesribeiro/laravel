@@ -32,19 +32,21 @@
     				</div>
   			</div>
 
-				<div class="form-group row">
-				  <label class="col-2 col-form-label">Tamanho:</label>
-				  <div class="col-3">
-				    <input class="form-control" type="number" name="tamanho" placeholder="Tamanho...">
-				  </div>
-				</div>
-
+				
 				<div class="form-group row">
 				  <label class="col-2 col-form-label">quantidade:</label>
 				  <div class="col-3">
 				    <input class="form-control" type="number" name="quantidade" placeholder="Quantidade...">
 				  </div>
 				</div>
+
+				<div class="form-group row">
+				  <label class="col-2 col-form-label">Tamanho:</label>
+				  <div class="col-3">
+				    <input class="form-control" type="text" name="tamanho" placeholder="Tamanho...">
+				  </div>
+				</div>
+
 
 		
 			

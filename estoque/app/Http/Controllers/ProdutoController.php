@@ -6,6 +6,7 @@ namespace estoque\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Request;
+use Validator;
 use estoque\Produto;
 
 Class ProdutoController extends Controller{
@@ -50,10 +51,7 @@ Class ProdutoController extends Controller{
 
 		public function novo(){
 
-
 			return view('produto.formulario');
-
-
 
 		}
 
@@ -73,6 +71,15 @@ Class ProdutoController extends Controller{
 			$produto->save();
 	
 			*/
+
+			$validator = Validator::make(
+					['nome' => Request::input('nome')],
+					['nome' => 'required|min:3']
+			);
+
+			if ($validator->fails()){
+				return redirect('/produtos/novo');
+			}
 
 			// Criando um produto com todos os parametros da request
 			Produto::create(Request::all());
