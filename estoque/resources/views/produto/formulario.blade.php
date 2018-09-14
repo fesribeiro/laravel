@@ -14,7 +14,11 @@
 
 		<form method="POST" action="/produtos/adiciona">		
 
-			<input type="hidden" value="{{csrf_token()}}" name="_token" />
+		<!-- <input type="hidden" value="{{csrf_token()}}" name="_token" />
+			@csrf -> versão simplificadas
+		 -->
+
+		@csrf
 
 			<div class="container">
 

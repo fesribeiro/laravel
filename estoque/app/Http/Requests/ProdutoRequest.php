@@ -33,4 +33,15 @@ class ProdutoRequest extends FormRequest
 
         ];
     }
+
+
+    public function messages()
+    {
+        return [
+            'required' => 'Atenção! :attribute é obrigatorio'
+
+        ];
+
+
+    }
 }
